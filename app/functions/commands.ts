@@ -33,7 +33,7 @@ const quit = async (): Promise<void> => {
  */
 const sendPhoto = async (): Promise<void> => {
 	bot.command("photo", (ctx) => {
-		ctx.replyWithPhoto("https://picsum.photos/200/300/");
+		// ctx.replyWithPhoto("https://picsum.photos/200/300/");
 	});
 };
 
@@ -45,9 +45,11 @@ const sendPhoto = async (): Promise<void> => {
  */
 const start = async (): Promise<void> => {
 	bot.start((ctx) => {
-		databases.writeUser(ctx.update.message.from);
-
-		ctx.telegram.sendMessage(ctx.message.chat.id, `Welcome! Try send /photo command or write any text`);
+		databases.writeUser(ctx.update.message.from, ctx.message.chat.id);
+		ctx.telegram.sendMessage(
+			ctx.message.chat.id,
+			`Bienvenido! Vas a recibir el estado de la web especificada cada hora.`,
+		);
 	});
 };
 

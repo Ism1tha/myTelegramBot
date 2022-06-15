@@ -16,13 +16,14 @@
  *
  * @Context: ctx.update.message.from
  *
- * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+ * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
  *
  * @param { number } id - telegram
  * @param { boolean } is_bot - is user a bot
  * @param { string } first_name - user name from telegram
  * @param { string } username - user username from telegram
  * @param { string } language_code - user code language from OS
+ * @param { number } chatroom_id - chat linked to the user
  *
  */
 export interface TelegramUserInterface {
@@ -30,7 +31,7 @@ export interface TelegramUserInterface {
 	 * Telegram User Interface
 	 * =====================
 	 *
-	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
 	 *
 	 * @param { number } id - telegram
 	 *
@@ -40,7 +41,7 @@ export interface TelegramUserInterface {
 	 * User Interface
 	 * =====================
 	 *
-	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
 	 *
 	 * @param { boolean } is_bot - is user a bot
 	 *
@@ -50,7 +51,7 @@ export interface TelegramUserInterface {
 	 * User Interface
 	 * =====================
 	 *
-	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
 	 *
 	 * @param { string } first_name - user name from telegram
 	 *
@@ -60,7 +61,7 @@ export interface TelegramUserInterface {
 	 * User Interface
 	 * =====================
 	 *
-	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
 	 *
 	 * @param { string } username - user username from telegram
 	 *
@@ -70,10 +71,20 @@ export interface TelegramUserInterface {
 	 * User Interface
 	 * =====================
 	 *
-	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
 	 *
 	 * @param { string } language_code - user code language from OS
 	 *
 	 */
 	language_code?: string;
+	/**
+	 * User chat room id
+	 * =====================
+	 *
+	 * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+	 *
+	 * @param { string } language_code - user code language from OS
+	 *
+	 */
+	chatroom_id?: number;
 }

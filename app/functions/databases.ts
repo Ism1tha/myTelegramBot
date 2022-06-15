@@ -24,14 +24,16 @@ databases.users.defaults({ users: [] }).write();
  *
  * @Context: ctx.update.message.from
  *
- * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+ * @param chatID
+ * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
  *
  * @param { TelegramUserInterface } json - telegram user object
  *
  */
-const writeUser = async (json: TelegramUserInterface): Promise<void> => {
+const writeUser = async (json: TelegramUserInterface, chatID: number): Promise<void> => {
 	const user_id = databases.users.get("users").find({ id: json.id }).value();
-
+	json.chatroom_id = chatID;
+	console.log(json);
 	if (user_id) {
 		databases.users.get("users").find({ id: user_id.id }).assign(json).write();
 	} else {
@@ -39,5 +41,22 @@ const writeUser = async (json: TelegramUserInterface): Promise<void> => {
 	}
 };
 
-export { databases, writeUser };
+/**
+ * getUsers()
+ * =====================
+ * Write user information from telegram context to user database
+ *
+ * @Context: ctx.update.message.from
+ *
+ * @interface [TelegramUserInterface](https://github.com/ptkdev-boilerplate-boilerplate/node-telegram-bot-boilerplate/blob/main/app/webcomponent/types/databases.type.ts)
+ *
+ * @param { TelegramUserInterface } json - telegram user object
+ *
+ */
+const getUsers = function (): TelegramUserInterface[] {
+	const allUsers = databases.users.get("users").value();
+	return allUsers;
+};
+
+export { databases, writeUser, getUsers };
 export default databases;

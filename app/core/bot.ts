@@ -1,4 +1,5 @@
 import * as command from "@app/functions/commands";
+import * as routines from "@app/functions/hourly";
 import * as hears from "@app/functions/hears";
 
 /**
@@ -16,4 +17,5 @@ import * as hears from "@app/functions/hears";
 	await command.sendPhoto();
 	await hears.text();
 	await command.launch();
+	await routines.start();
 })();
